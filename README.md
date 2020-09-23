@@ -1,2 +1,2 @@
-# MyProjects
- Desenvolvimento de aplicações simples.
+# MyStudies
+ Desenvolvimento de aplicações simples em Python.
