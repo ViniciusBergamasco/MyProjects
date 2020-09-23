@@ -1,7 +1,9 @@
 import random
 
+
 def continuar():
-    tecla = input('Aperte qualquer tecla para continuar...')
+    input('Aperte qualquer tecla para continuar...')
+
 
 def jogarNov():
     global sair
@@ -13,16 +15,15 @@ def jogarNov():
         sair = 's'
     else:
         print('Essa opção não existe!')
-        continuar = input('Aperte qualquer tecla para continuar...')
+        continuar()
     return sair
-
 
 
 sair = 'n'
 while sair == 'n':
     print('''    ### JOGOS ###
 1- Pedra, papel ou tesoura
-2- Adivinhe o número
+2- Adivinhe o número1
 3- Ímpar ou par 
 ''')
     jogo = input('Digite o número do jogo desejado: ')
@@ -42,40 +43,39 @@ while sair == 'n':
         VOCÊ PERDEU!''')
         else:
             print('Essa opcão não existe!')
-            continuar()
-        sair = jogarNov()
+        continuar()
+        jogarNov()
     elif jogo == '2':
         print('    ### ADIVINHE O NÚMERO ###')
         escolhaPc = random.randint(0, 11)
         escolhaUs = int(input('Tente adivinhar um número de 0 a 10: '))
         if escolhaUs < 0 or escolhaUs > 10:
             print('O número digitado não está dentro do intervalo proposto')
-            continuar()
         else:
             print(f'O número era {escolhaPc}')
             if escolhaPc == escolhaUs:
                 print('Você acertou!')
             else:
                 print('Você errou!')
-            continuar()
-            sair = jogarNov()
+        continuar()
+        jogarNov()
     elif jogo == '3':
         print('    ### ÍMPAR OU PAR ###')
         escolhaPc = random.randint(0, 11)
         imparOuPar = input('Escolha entre ímpar ou par: ').lower()
-        if imparOuPar != 'ímpar' and imparOuPar != 'par':
+        if imparOuPar != 'ímpar' or imparOuPar != 'impar' and imparOuPar != 'par':
             print('Essa opção não existe.')
             continuar()
         numero = int(input('Escolha um número:'))
-        resultado = (escolhaPc + numero)%2
-        if imparOuPar == 'ímpar'  and resultado == 1 or imparOuPar == 'par' and resultado == 0:
+        resultado = (escolhaPc + numero) % 2
+        if imparOuPar == 'ímpar' or imparOuPar == 'impar' and resultado == 1 or imparOuPar == 'par' and resultado == 0:
             print(f'O computador escolheu o número {escolhaPc}')
             print('Você ganhou!')
         else:
             print(f'O computador escolheu o número {numero}')
             print('Você perdeu!')
         continuar()
-        sair = jogarNov()
+        jogarNov()
     else:
         print('Essa opção de jogo não existe!')
         continuar()
