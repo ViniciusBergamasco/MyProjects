@@ -1,2 +1,2 @@
 # MyStudies
- Desenvolvimento de aplicações simples.
+ Desenvolvimento de aplicações simples em Python.
